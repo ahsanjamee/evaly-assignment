@@ -22,7 +22,6 @@ export const Images = (props) => {
     }
   };
 
-  // console.log(mainImage);
   return (
     <div className="productImage">
       {}

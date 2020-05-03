@@ -12,7 +12,6 @@ const Products = () => {
   const [color, setColor] = useState(null);
   const [size, setSize] = useState(null);
   const [shopName, setShopName] = useState(null);
-  const [shopImage, setShopImage] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,8 +22,8 @@ const Products = () => {
       // const result = item.results[10];
       const image = item.data.product_variants[0].product_images;
       const details = item.data.product_variants[0];
-      const attrColor = item.data.attributes[0].attribute_values[0].value;
-      const attrSize = item.data.attributes[1].attribute_values[0].value;
+      const attrColor = item.data.attributes[0].attribute_values;
+      const attrSize = item.data.attributes[1].attribute_values;
 
       setSize(attrSize);
       setColor(attrColor);
@@ -40,8 +39,7 @@ const Products = () => {
 
       const shops = await response2.json();
       const shopName = shops.data;
-      setShopName(shopName[0].shop_name);
-      setShopImage(shopName[0].shop_image);
+      setShopName(shopName);
     }
     fetchData();
 
@@ -61,7 +59,7 @@ const Products = () => {
           color={color}
           size={size}
         />
-        <Shops name={shopName} image={shopImage} />
+        <Shops name={shopName} />
       </div>
     </div>
   );

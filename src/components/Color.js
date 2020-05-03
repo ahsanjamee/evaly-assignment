@@ -7,7 +7,13 @@ export const Color = (props) => {
         <h4>Color</h4>
       </div>
       <hr />
-      <button>{props.color}</button>
+      {props.color ? 
+      (props.color).map((item) => {
+        return(
+          <button>{item.value}</button> 
+        )
+      })
+        : null}
     </div>
   );
 };
