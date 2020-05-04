@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Size from "./Size";
 import Color from "./Color";
 
 export const ProductDetails = (props) => {
+  
   return (
     <div className="productDetails">
       <div className="title">{props.title}</div>
@@ -12,8 +13,9 @@ export const ProductDetails = (props) => {
         {props.desc}
         <hr />
       </div>
-      <Size size={props.size} />
-      <Color color={props.color} />
+      <Size size={props.size} sizeKey={props.sizeKey}/>
+      <Color color={props.color} handleClick={props.handleClick}/>
+
     </div>
   );
 };

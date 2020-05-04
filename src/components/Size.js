@@ -11,7 +11,7 @@ export const Size = (props) => {
       {props.size ? 
       (props.size).map((item) => {
         return(
-          <button>{item.value}</button> 
+          <button onClick={() => props.sizeKey(item.key)}>{item.value}</button> 
         )
       })
         : null}

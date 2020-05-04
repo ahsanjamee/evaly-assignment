@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const Color = (props) => {
+
   return (
     <div className="color">
       <div className="colorButton">
@@ -10,7 +11,7 @@ export const Color = (props) => {
       {props.color ? 
       (props.color).map((item) => {
         return(
-          <button>{item.value}</button> 
+          <button onClick={() => props.handleClick(item.key)}>{item.value}</button> 
         )
       })
         : null}
